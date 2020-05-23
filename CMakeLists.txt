@@ -1,0 +1,26 @@
+﻿cmake_minimum_required(VERSION 3.16)
+project(csv2 CXX)
+
+message(STATUS "CMake version: ${CMAKE_VERSION}")
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+
+# Add source to this project's executable.
+add_library(csv2 SHARED
+	src/csv2.cpp
+	src/hooks.cpp
+	src/interfaces/interfaces.cpp
+	src/glow/glow.cpp
+)
+
+# Get rid of the `lib` prefix.
+set_target_properties(csv2 PROPERTIES PREFIX "")
+
+target_include_directories(csv2 PRIVATE
+	${CMAKE_CURRENT_SOURCE_DIR}/src
+	${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+# TODO: This causes a bunch of warnings to appear.
+target_link_libraries(csv2 PRIVATE
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/libMinHook-x86-v141-mtd.lib)
+
+target_compile_features(csv2 PRIVATE cxx_std_17)
