@@ -1,7 +1,21 @@
 ﻿#include "peko.h"
 
+bool config() {
+	// Exit.
+	if (GetAsyncKeyState(VK_END)) {
+		return false;
+	}
+
+	// Toggle glow.
+	if (GetAsyncKeyState(VK_F6)) {
+		glow::enabled = !glow::enabled;
+	}
+
+	return true;
+}
+
 DWORD WINAPI initialize(void *instance) {
-	auto cleanup = [&] {
+	auto cleanup = [instance] {
 		debug::log("> cleaning up\n");
 
 		hooks::release();
@@ -17,12 +31,11 @@ DWORD WINAPI initialize(void *instance) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(250));
 
 	try {
-		debug::log("> root@fsoc.space\n");
-		debug::log("> initializing\n");
+		debug::log("> initializing pekoeisteehookware-reformed\n");
 
 		hooks::initialize();
 
-		while (!GetAsyncKeyState(VK_END)) {
+		while (config()) {
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 		}
 

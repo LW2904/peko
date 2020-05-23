@@ -2,9 +2,11 @@
 
 #include "common.h"
 
-#include "sdk/entities.h"
+#include "sdk/sdk.h"
 
 namespace glow {
+	inline bool enabled = false;
+
 	constexpr int END_OF_FREE_LIST = -1;
 	constexpr int ENTRY_IN_USE = -2;
 

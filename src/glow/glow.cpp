@@ -12,6 +12,10 @@ namespace glow {
 	}
 
 	void hook() {
+		if (!enabled) {
+			return;
+		}
+
 		if (!manager) {
 			initialize();
 			return;
@@ -33,7 +37,7 @@ namespace glow {
 				continue;
 			}
 
-			/* switch (team) {
+			switch (team) {
 				case 2:
 					glow_object.r = 0.89019f;
 					glow_object.g = 0.23137f;
@@ -46,7 +50,7 @@ namespace glow {
 					break;
 				default:
 					break;
-			} */
+			}
 
 			glow_object.glow_alpha = 1.0f;
 			glow_object.render_when_occluded = true;
