@@ -4,8 +4,9 @@
 
 #include "MinHook.h"
 
+#include "sdk/sdk.h"
+#include "bhop/bhop.h"
 #include "glow/glow.h"
-#include "sdk/entities.h"
 #include "interfaces/interfaces.h"
 
 namespace hooks {
@@ -33,6 +34,13 @@ namespace hooks {
 
 		void __fastcall hook(void *thisptr, void *edx,
 			client_frame_stage_t stage);
+	}
+
+	namespace create_move {
+		using proto = bool (__stdcall *)(float, sdk::c_usercmd *);
+		extern proto original;
+
+		bool __fastcall hook(void* ecx, void* edx, int input_sample_frametime, sdk::c_usercmd* cmd);
 	}
 
 	void initialize();

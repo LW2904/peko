@@ -3,6 +3,7 @@
 namespace interfaces {
 	sdk::engine_client *engine = nullptr;
 	sdk::base_client_dll *client = nullptr;
+	sdk::client_mode *client_mode = nullptr;
 	sdk::client_entity_list *entity_list = nullptr;
 
 	template<typename T>
@@ -26,6 +27,10 @@ namespace interfaces {
 			"VClient018");
 		entity_list = get_interface<sdk::client_entity_list>("client_panorama.dll",
 			"VClientEntityList003");
+
+		// TODO: This is really ghetto.
+		client_mode = **reinterpret_cast<sdk::client_mode ***>(
+			(*reinterpret_cast<uintptr_t **>(client))[10] + 5);
 
 		debug::log("> initialized interfaces\n");
 	}

@@ -7,9 +7,9 @@ message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 # Add source to this project's executable.
 add_library(peko SHARED
 	src/peko.cpp
-	src/hooks.cpp
+	src/hooks/hooks.cpp
 	src/interfaces/interfaces.cpp
-	src/glow/glow.cpp)
+	src/glow/glow.cpp src/bhop/bhop.cpp src/bhop/bhop.h)
 
 # Get rid of the `lib` prefix.
 set_target_properties(peko PROPERTIES PREFIX "")
