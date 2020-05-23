@@ -1,1 +1,1 @@
-./injector/cmake-build-debug-msvc/injector.exe ./cmake-build-debug-msvc/csv2.dll csgo.exe
+./injector/cmake-build-debug-msvc/injector.exe ./cmake-build-debug/peko.dll csgo.exe
