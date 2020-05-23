@@ -33,3 +33,6 @@
 
 # Hazedumper
 hazedumper.*
+
+# CMake build folders
+cmake-build*
