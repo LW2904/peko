@@ -52,7 +52,7 @@ namespace hooks {
 		// See: https://developer.valvesoftware.com/wiki/Frame_Order
 		if (stage == FRAME_RENDER_START) {
 			glow::hook();
-		}h
+		}
 
 exit:
 		frame_stage_notify::original(thisptr, stage);
