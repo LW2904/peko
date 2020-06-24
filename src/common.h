@@ -16,3 +16,11 @@ namespace debug {
 		Msg(message, args...);
 	}
 }
+
+namespace csgo {
+	// Should probably move some more stuff here at some point
+
+	extern uintptr_t client_base;
+
+	void initialize();
+}

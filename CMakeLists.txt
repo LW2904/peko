@@ -9,7 +9,9 @@ add_library(peko SHARED
 	src/peko.cpp
 	src/hooks/hooks.cpp
 	src/interfaces/interfaces.cpp
-	src/glow/glow.cpp src/bhop/bhop.cpp src/bhop/bhop.h)
+	src/glow/glow.cpp
+	src/bhop/bhop.cpp
+	src/common.cpp)
 
 # Get rid of the `lib` prefix.
 set_target_properties(peko PROPERTIES PREFIX "")

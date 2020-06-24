@@ -4,11 +4,8 @@ namespace glow {
 	glow_object_manager *manager = nullptr;
 
 	void initialize() {
-		const auto client_base = reinterpret_cast<uintptr_t>(
-			GetModuleHandle("client_panorama.dll"));
-
-		manager = reinterpret_cast<glow_object_manager *>(
-			client_base + hazedumper::signatures::dwGlowObjectManager);
+		manager = reinterpret_cast<glow_object_manager *>(csgo::client_base
+			+ hazedumper::signatures::dwGlowObjectManager);
 	}
 
 	void hook() {

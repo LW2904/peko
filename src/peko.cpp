@@ -33,6 +33,7 @@ DWORD WINAPI initialize(void *instance) {
 	try {
 		debug::log("> initializing pekoeisteehookware-reformed\n");
 
+		csgo::initialize();
 		hooks::initialize();
 
 		while (config()) {
