@@ -25,9 +25,7 @@ namespace glow {
 				continue;
 			}
 
-			int team = *reinterpret_cast<int *>(
-				reinterpret_cast<uintptr_t>(glow_object.entity) +
-					hazedumper::netvars::m_iTeamNum);
+			int team = glow_object.entity->get_team();
 
 			// This should filter out everything that's not a player.
 			if (!team) {
@@ -51,7 +49,7 @@ namespace glow {
 
 			glow_object.glow_alpha = 1.0f;
 			glow_object.render_when_occluded = true;
-			glow_object.bloom_amount = 1.0f;
+			glow_object.bloom_amount = 0.5f;
 		}
 	}
 };

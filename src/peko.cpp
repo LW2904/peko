@@ -21,7 +21,7 @@ DWORD WINAPI initialize(void *instance) {
 		hooks::release();
 
 		// Wait a bit so any running hooks can finish.
-		std::this_thread::sleep_for(std::chrono::milliseconds (250));
+		std::this_thread::sleep_for(std::chrono::milliseconds (500));
 		debug::log("> exiting\n");
 		FreeLibraryAndExitThread(static_cast<HMODULE>(instance), 0);
 	};
@@ -55,6 +55,7 @@ BOOL WINAPI DllMain(HINSTANCE instance, DWORD reason, LPVOID reserved) {
 	if (reason == DLL_PROCESS_ATTACH) {
 		auto handle = CreateThread(nullptr, NULL, initialize, instance,
 			NULL, nullptr);
+
 		if (handle) {
 			CloseHandle(handle);
 		} else {

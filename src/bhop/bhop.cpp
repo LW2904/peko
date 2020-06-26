@@ -1,7 +1,7 @@
 #include "bhop.h"
 
 namespace bhop {
-	constexpr int ON_GROUND = (1<<0);
+	constexpr int ON_GROUND = (1 << 0);
 
 	void hook(sdk::c_usercmd *cmd) {
 		auto local_player = *reinterpret_cast<sdk::c_base_player **>(csgo::client_base
