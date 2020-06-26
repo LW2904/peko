@@ -21,21 +21,35 @@ namespace sdk {
 	// https://aixxe.net/2016/09/linux-skin-changer
 
 	class c_base_player {
-	public:
-		unsigned char get_life_state() {
-			return *(unsigned char *)((uintptr_t)this + m_lifeState);
+	private:
+		template<typename T>
+		inline T get_netvar(uintptr_t netvar) {
+			return reinterpret_cast<T>(reinterpret_cast<uintptr_t>(this) + netvar);
 		}
 
-		int get_health() {
-			return *(int *)((uintptr_t)this + m_iHealth);
+	public:
+		unsigned char get_life_state() {
+			return *get_netvar<unsigned char *>(m_lifeState);
 		}
 
 		int *get_weapons() {
-			return (int *)((uintptr_t)this + m_hMyWeapons);
+			return get_netvar<int *>(m_hMyWeapons);
+		}
+
+		int get_health() {
+			return *get_netvar<int *>(m_iHealth);
 		}
 
 		int get_flags() {
-			return *(int *)((uintptr_t)this + m_fFlags);
+			return *get_netvar<int *>(m_fFlags);
+		}
+
+		int in_cross() {
+			return *get_netvar<int *>(m_iCrosshairId);
+		}
+
+		int get_team() {
+			return *get_netvar<int *>(m_iTeamNum);
 		}
 	};
 

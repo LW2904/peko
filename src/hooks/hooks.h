@@ -7,6 +7,7 @@
 #include "sdk/sdk.h"
 #include "bhop/bhop.h"
 #include "glow/glow.h"
+#include "trigger/trigger.h"
 #include "interfaces/interfaces.h"
 
 namespace hooks {
@@ -46,4 +47,4 @@ namespace hooks {
 	void initialize();
 
 	void release();
-};
+}

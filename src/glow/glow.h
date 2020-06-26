@@ -7,8 +7,8 @@
 namespace glow {
 	inline bool enabled = false;
 
-	constexpr int END_OF_FREE_LIST = -1;
 	constexpr int ENTRY_IN_USE = -2;
+	constexpr int END_OF_FREE_LIST = -1;
 
 	template<class T, class I = int>
 	class utl_memory {
@@ -36,7 +36,7 @@ namespace glow {
 
 	struct glow_object_definition {
 		// Actually a C_BaseEntity *
-		void *entity;
+		sdk::c_base_player *entity;
 
 		// Vector m_vGlowColor;
 		float r;

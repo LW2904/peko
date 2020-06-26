@@ -66,6 +66,7 @@ exit:
 			return create_move::original(input_sample_frametime, cmd);
 
 		bhop::hook(cmd);
+		trigger::hook(cmd);
 
 		return false;
 	}

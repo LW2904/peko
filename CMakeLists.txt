@@ -9,6 +9,7 @@ add_library(peko SHARED
 	src/peko.cpp
 	src/hooks/hooks.cpp
 	src/interfaces/interfaces.cpp
+	src/trigger/trigger.cpp
 	src/glow/glow.cpp
 	src/bhop/bhop.cpp
 	src/common.cpp)
