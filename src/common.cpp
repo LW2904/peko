@@ -5,7 +5,7 @@ namespace csgo {
 
 	void initialize() {
 		client_base = client_base = reinterpret_cast<uintptr_t>(
-			GetModuleHandle("client_panorama.dll"));
+			GetModuleHandle("client.dll"));
 
 		debug::log("> initialized common variables\n");
 	}

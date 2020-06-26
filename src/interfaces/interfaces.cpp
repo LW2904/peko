@@ -23,9 +23,8 @@ namespace interfaces {
 
 	void initialize() {
 		engine = get_interface<sdk::engine_client>("engine.dll", "VEngineClient014");
-		client = get_interface<sdk::base_client_dll>("client_panorama.dll",
-			"VClient018");
-		entity_list = get_interface<sdk::client_entity_list>("client_panorama.dll",
+		client = get_interface<sdk::base_client_dll>("client.dll", "VClient018");
+		entity_list = get_interface<sdk::client_entity_list>("client.dll",
 			"VClientEntityList003");
 
 		// TODO: This is really ghetto.
